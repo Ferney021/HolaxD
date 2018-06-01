@@ -43,3 +43,67 @@ bool trans_matriz(bool** A, int n, int m){
     }
     return true;
 }
+
+
+
+bool orden_matriz(bool** A,int n,int m){
+    if(refle_matriz(A,n,m)==1 && sim_mat(A,n,m)==0 && trans_matriz(A,n,m)==1){
+        return true;
+    }else{
+        return false;
+    }
+}
+
+bool equiv_matriz(bool** A,int n,int m){
+    if(refle_matriz(A,n,m)==1 && sim_mat(A,n,m)==1 && trans_matriz(A,n,m)==1){
+        return true;
+    }else{
+        return false;
+    }
+}
+
+bool func_matriz(bool** A,int n,int m){
+    for(int i=0;i<n;i++){
+        int c=0;
+        for(int j=0;j<m;j++){
+            if(A[i][j]==1){
+                c++;
+            }
+        }
+    if(c>1){
+            return false;
+        }
+    }
+    return true;
+}
+
+bool inyec_matriz(bool** A,int n,int m){
+    for(int j=0;j<m;j++){
+        int c=0;
+        for(int i=0;i<n;i++){
+            if(A[i][j]==1){
+                c++;
+            };
+        };
+        if(c>1){
+            return false;
+        };
+
+    };
+    return true;
+};
+
+bool sobreyec_matriz(bool** A,int n,int m){
+    for(int j=0;j<m;j++){
+        int c=0;
+    for(int i=0;i<n;i++){
+            if(A[i][j]==1){
+                c++;
+            }
+        }
+    if(c==0){
+            return false;
+    };
+    };
+    return true;
+};
